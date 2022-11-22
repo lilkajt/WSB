@@ -1,5 +1,5 @@
-﻿Console.Write("Input prime number : ");
-string Raw_a = Console.ReadLine();
+﻿//Console.Write("Input prime number : ");
+//string Raw_a = Console.ReadLine();
 //  Console.Write("Input +,-,*,/: ");
 //  string Raw_c = Console.ReadLine();
 //Console.Write("Input number width: ");
@@ -151,7 +151,7 @@ else
     {
         if (x <= 10 && x >= 1)
         {
-            double result = 1;
+            int result = 1;
             for (int i = x; i > 1; i--)
             {
                 result = result* i;
@@ -239,6 +239,7 @@ else
     }
 }
 */
+/* EXERCISE 9
 if (Raw_a == "")
 {
     Console.WriteLine("User input is empty");
@@ -283,4 +284,132 @@ else
         Console.WriteLine("Input is not a number");
         Console.ReadLine();
     }
+}
+*/
+Console.WriteLine("Welcome to tic tac toe ");
+Console.WriteLine($"   |   |   ");
+Console.WriteLine($"---+---+---");
+Console.WriteLine($"   |   |   ");
+Console.WriteLine($"---+---+---");
+Console.WriteLine($"   |   |   ");
+string[] Array = new string[9];
+bool X = true;
+bool O = true;
+int End = 0;
+for (int i = 0; i < 9; i++)
+{
+    Console.WriteLine(End);
+    //Console.WriteLine(Array.Length);
+    if (X)
+    {
+        Console.Write("X's move: ");
+        string Raw_a = Console.ReadLine();
+        if (Raw_a == "")
+        {
+            Console.WriteLine("User input is empty");
+            Console.ReadLine();
+        }
+        else
+        {
+            bool TryParseuserInputA = int.TryParse(Raw_a, out int a);
+            if (TryParseuserInputA)
+            {
+                if (End == 9)
+                {
+                    Console.WriteLine("Game END");
+                    Console.ReadLine();
+                    Environment.Exit(1);
+                }
+                else
+                {
+                    if (a > 0 && a < 10)
+                    {
+                        if (Array[a - 1] != "X" && Array[a - 1] != "O")
+                        {
+                            Array[a - 1] = "X";
+                            Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
+                            Console.WriteLine($"---+---+---");
+                            Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
+                            Console.WriteLine($"---+---+---");
+                            Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
+                            X = false;
+                            O = true;
+                            End += 1;
+                        }
+                        else
+                        {
+                            Console.WriteLine("X can not be placed here");
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("User input out of range");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Input is not a number");
+            }
+        }
+
+    }
+
+    if (O)
+    {
+        Console.Write("O's move: ");
+        string Raw_a = Console.ReadLine();
+        if (Raw_a == "")
+        {
+            Console.WriteLine("User input is empty");
+            Console.ReadLine();
+        }
+        else
+        {
+            bool TryParseuserInputA = int.TryParse(Raw_a, out int a);
+            if (TryParseuserInputA)
+            {
+                if (End == 9)
+                {
+                    Console.WriteLine("Game END");
+                    Console.ReadLine();
+                    Environment.Exit(1);
+                }
+                else
+                {
+                    if (a > 0 && a < 10)
+                    {
+                        if (Array[a - 1] != "X" && Array[a - 1] != "O")
+                        {
+                            Array[a - 1] = "O";
+                            Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
+                            Console.WriteLine($"---+---+---");
+                            Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
+                            Console.WriteLine($"---+---+---");
+                            Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
+                            X = true;
+                            O = false;
+                            End += 1;
+                        }
+                        else
+                        {
+                            Console.WriteLine("O can not be placed here");
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("User input out of range");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Input is not a number");
+            }
+        }
+
+    }
+
 }
