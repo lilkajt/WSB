@@ -295,11 +295,23 @@ Console.WriteLine($"   |   |   ");
 string[] Array = new string[9];
 bool X = true;
 bool O = true;
-int End = 0;
-for (int i = 0; i < 9; i++)
+int End = 1;
+while (true)
 {
-    Console.WriteLine(End);
+    //Console.WriteLine(End);
     //Console.WriteLine(Array.Length);
+    if (End == 10)
+    {
+        Console.ReadLine();
+        Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
+        Console.WriteLine($"---+---+---");
+        Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
+        Console.WriteLine($"---+---+---");
+        Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
+        Console.WriteLine("Game END");
+        Console.ReadLine();
+        Environment.Exit(1);
+    }
     if (X)
     {
         Console.Write("X's move: ");
@@ -314,38 +326,29 @@ for (int i = 0; i < 9; i++)
             bool TryParseuserInputA = int.TryParse(Raw_a, out int a);
             if (TryParseuserInputA)
             {
-                if (End == 9)
+                if (a > 0 && a < 10)
                 {
-                    Console.WriteLine("Game END");
-                    Console.ReadLine();
-                    Environment.Exit(1);
-                }
-                else
-                {
-                    if (a > 0 && a < 10)
+                    if (Array[a - 1] != "X" && Array[a - 1] != "O")
                     {
-                        if (Array[a - 1] != "X" && Array[a - 1] != "O")
-                        {
-                            Array[a - 1] = "X";
-                            Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
-                            Console.WriteLine($"---+---+---");
-                            Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
-                            Console.WriteLine($"---+---+---");
-                            Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
-                            X = false;
-                            O = true;
-                            End += 1;
-                        }
-                        else
-                        {
-                            Console.WriteLine("X can not be placed here");
-                        }
-
+                        Array[a - 1] = "X";
+                        Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
+                        Console.WriteLine($"---+---+---");
+                        Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
+                        Console.WriteLine($"---+---+---");
+                        Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
+                        X = false;
+                        O = true;
+                        End += 1;
                     }
                     else
                     {
-                        Console.WriteLine("User input out of range");
+                        Console.WriteLine("X can not be placed here");
                     }
+
+                }
+                else
+                {
+                    Console.WriteLine("User input out of range");
                 }
             }
             else
@@ -370,38 +373,29 @@ for (int i = 0; i < 9; i++)
             bool TryParseuserInputA = int.TryParse(Raw_a, out int a);
             if (TryParseuserInputA)
             {
-                if (End == 9)
+                if (a > 0 && a < 10)
                 {
-                    Console.WriteLine("Game END");
-                    Console.ReadLine();
-                    Environment.Exit(1);
-                }
-                else
-                {
-                    if (a > 0 && a < 10)
+                    if (Array[a - 1] != "X" && Array[a - 1] != "O")
                     {
-                        if (Array[a - 1] != "X" && Array[a - 1] != "O")
-                        {
-                            Array[a - 1] = "O";
-                            Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
-                            Console.WriteLine($"---+---+---");
-                            Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
-                            Console.WriteLine($"---+---+---");
-                            Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
-                            X = true;
-                            O = false;
-                            End += 1;
-                        }
-                        else
-                        {
-                            Console.WriteLine("O can not be placed here");
-                        }
-
+                        Array[a - 1] = "O";
+                        Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
+                        Console.WriteLine($"---+---+---");
+                        Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
+                        Console.WriteLine($"---+---+---");
+                        Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
+                        X = true;
+                        O = false;
+                        End += 1;
                     }
                     else
                     {
-                        Console.WriteLine("User input out of range");
+                        Console.WriteLine("O can not be placed here");
                     }
+
+                }
+                else
+                {
+                    Console.WriteLine("User input out of range");
                 }
             }
             else
