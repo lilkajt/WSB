@@ -295,23 +295,11 @@ Console.WriteLine($"   |   |   ");
 string[] Array = new string[9];
 bool X = true;
 bool O = true;
-int End = 1;
+int End = 0;
 while (true)
 {
     //Console.WriteLine(End);
     //Console.WriteLine(Array.Length);
-    if (End == 10)
-    {
-        Console.ReadLine();
-        Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
-        Console.WriteLine($"---+---+---");
-        Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
-        Console.WriteLine($"---+---+---");
-        Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
-        Console.WriteLine("Game END");
-        Console.ReadLine();
-        Environment.Exit(1);
-    }
     if (X)
     {
         Console.Write("X's move: ");
@@ -405,5 +393,16 @@ while (true)
         }
 
     }
-
+    if (End == 9)
+    {
+        Console.ReadLine();
+        Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
+        Console.WriteLine($"---+---+---");
+        Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
+        Console.WriteLine($"---+---+---");
+        Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
+        Console.WriteLine("Game END");
+        Console.ReadLine();
+        Environment.Exit(1);
+    }
 }
