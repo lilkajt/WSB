@@ -346,7 +346,17 @@ while (true)
         }
 
     }
-
+    if (End == 9)
+    {
+        Console.Clear();
+        Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
+        Console.WriteLine($"---+---+---");
+        Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
+        Console.WriteLine($"---+---+---");
+        Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
+        Console.WriteLine("Game END");
+        Environment.Exit(1);
+    }
     if (O)
     {
         Console.Write("O's move: ");
@@ -392,17 +402,5 @@ while (true)
             }
         }
 
-    }
-    if (End == 9)
-    {
-        Console.ReadLine();
-        Console.WriteLine($" {Array[0]} | {Array[1]} | {Array[2]} ");
-        Console.WriteLine($"---+---+---");
-        Console.WriteLine($" {Array[3]} | {Array[4]} | {Array[5]} ");
-        Console.WriteLine($"---+---+---");
-        Console.WriteLine($" {Array[6]} | {Array[7]} | {Array[8]} ");
-        Console.WriteLine("Game END");
-        Console.ReadLine();
-        Environment.Exit(1);
     }
 }
